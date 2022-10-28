@@ -6,23 +6,30 @@ body {
   box-sizing: border-box;
 }
 
+body {
+  background-image: url(img/bg5.jpg);
+  background-size: cover;
+}
+
 h1 {
   text-align: center;
   margin: 0 auto;
   margin-top: 20px;
+  color: #fff;
 }
 
 .container {
   width: 60%;
-  padding-top: 20px;
-  border: 3px solid #ec9b32;
+  padding-top: 30px;
   margin: auto;
   margin-top: 3rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 5rem;
-  background-color: #f0e2d0;
+  background-color: #fff;
+  border-radius: 2%;
+  border: 3px dotted #ec9b32;
 }
 
 .recent {
@@ -47,6 +54,16 @@ h1 {
   gap: 1rem;
 }
 
+button {
+  background-color: #ec9b32;
+  border: #ec9b32;
+}
+
+button:hover {
+  background-color: white;
+  color: #ec9b32;
+}
+
 .submit {
   width: 5rem;
   align-self: end;
@@ -54,7 +71,6 @@ h1 {
 
 .list {
   list-style-type: none;
-  height: 40vh;
   width: 100%;
   margin-bottom: 1rem;
   margin-top: 1rem;
