@@ -1,64 +1,36 @@
-// import _ from 'lodash';
 import './style.css';
+import { renderContainer, toAddScore } from './modules/data.js';
 
-const array = [
-  {
-    name: 'Name',
-    score: 90,
-  },
+let gameIdentity = '';
+fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games', {
 
-  {
-    name: 'Name',
-    score: 90,
+  method: 'POST',
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
   },
-
-  {
-    name: 'Name',
-    score: 90,
-  },
-
-  {
-    name: 'Name',
-    score: 90,
-  },
-
-  {
-    name: 'Name',
-    score: 90,
-  },
-
-  {
-    name: 'Name',
-    score: 90,
-  },
-  {
-    name: 'Name',
-    score: 90,
-  },
-  {
-    name: 'Name',
-    score: 90,
-  },
-  {
-    name: 'Name',
-    score: 90,
-  },
-];
-
-// const display = document.querySelector('#listing');
-const element = document.createElement('li');
-
-const render = () => {
-  array.forEach((a, index) => {
-    element.innerHTML += `
-    <li class='litem ${index % 2 !== 0 ? 'item' : 'item1'}' >
-      <label class='lname'> ${a.name} : </label> 
-      <label class='lscore'> ${a.score} </label>
-    </li>
-    `;
+  body: JSON.stringify({
+    name: 'Handball tx',
+  }),
+}).then((res) => res.json())
+  .then((gameID) => {
+    const response = gameID.result;
+    gameIdentity = response.substring(14, response.lastIndexOf(' '));
   });
-};
-window.onload = () => {
-  render();
-  document.querySelector('#list').appendChild(element);
-};
+
+const refresh = document.querySelector('.r-btn');
+
+refresh.addEventListener('click', () => {
+  renderContainer(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameIdentity}/scores`);
+});
+
+const submitscore = document.getElementById('submit');
+const yourName = document.getElementById('name');
+const score = document.getElementById('score');
+submitscore.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (yourName.value !== '' && score.value !== '') {
+    submitscore.classList.add('onfocuss');
+    toAddScore(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameIdentity}/scores`, yourName.value, score.value);
+    document.forms[0].reset();
+  }
+});

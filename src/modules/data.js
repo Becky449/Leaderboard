@@ -1,64 +1,39 @@
-// import _ from 'lodash';
-import '../style.css';
+const renderContainer = async (gameLInk) => {
+  const res = await fetch(gameLInk);
+  await res.json()
+    .then((resData) => {
+      const container = document.querySelector('.list');
+      container.replaceChildren();
+      let counts = 1;
+      resData.result.forEach((scores, index) => {
+        container.innerHTML += `
+        <li>
+          <p>${scores.user}:</p>
+          <p>${scores.score}</p>
+        </li> `;
+        container.classList.add('x');
+        if (counts % 2 === 0) {
+          container.children[index].classList.add('color');
+        } else {
+          container.children[index].classList.add('no-color');
+        }
 
-const array = [
-  {
-    name: 'Name',
-    score: 34,
-  },
+        counts += 1;
+      });
+    });
+};
 
-  {
-    name: 'Name',
-    score: 34,
-  },
-
-  {
-    name: 'Name',
-    score: 34,
-  },
-
-  {
-    name: 'Name',
-    score: 34,
-  },
-
-  {
-    name: 'Name',
-    score: 34,
-  },
-
-  {
-    name: 'Name',
-    score: 34,
-  },
-  {
-    name: 'Name',
-    score: 34,
-  },
-  {
-    name: 'Name',
-    score: 34,
-  },
-  {
-    name: 'Name',
-    score: 34,
-  },
-];
-
-// const display = document.querySelector('#list');
-const element = document.createElement('li');
-
-const render = () => {
-  array.forEach((a, index) => {
-    element.innerHTML += `
-    <li class='litem ${index % 2 !== 0 ? 'item' : 'item1'}' >
-      <label class='lname'> ${a.name} : </label> 
-      <label class='lscore'> ${a.score} </label>
-    </li>
-    `;
+const toAddScore = async (gameLInk, user, score) => {
+  await fetch(gameLInk, {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+    body: JSON.stringify({
+      user,
+      score,
+    }),
   });
 };
-window.onload = () => {
-  render();
-  document.querySelector('#list').appendChild(element);
-};
+
+export { renderContainer, toAddScore };

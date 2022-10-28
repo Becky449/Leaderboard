@@ -61,17 +61,16 @@ h1 {
   padding: 0.3rem;
 }
 
-.item {
-  list-style-type: none;
-  background: #ec9b32;
-}
-
-.litem {
+li {
   display: flex;
   flex-direction: row;
   gap: 1rem;
 }
 
-.lname {
-  width: 30%;
+.color {
+  background-color: #ec9b32;
+}
+
+.no-color {
+  border: 2px dotted #ec9b32;
 }
