@@ -20,7 +20,7 @@ fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games', {
 const refresh = document.querySelector('.r-btn');
 
 refresh.addEventListener('click', () => {
-  renderContainer(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameIdentity}/scores`);
+  renderContainer(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/zilCJ92DyR9p0QhPQKZI/scores`);
 });
 
 const submitscore = document.getElementById('submit');
@@ -30,7 +30,7 @@ submitscore.addEventListener('click', (e) => {
   e.preventDefault();
   if (yourName.value !== '' && score.value !== '') {
     submitscore.classList.add('onfocuss');
-    toAddScore(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameIdentity}/scores`, yourName.value, score.value);
+    toAddScore(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/zilCJ92DyR9p0QhPQKZI/scores`, yourName.value, score.value);
     document.forms[0].reset();
   }
 });
