@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./src/style.css">
+  <link rel="stylesheet" href="./style.css">
   <title>Leaderboard</title>
 </head>
 <body>
   <h1>Leaderboard</h1>
-  <div id="container" class="container">
+  <div id="container" class="container d-flex">
     <!-- Scores -->
     <div id="scores" class="scores">
-      <div class="recent">
+      <div class="recent d-flex">
         <h3 class="recent-scores">Recent scores</h3>
         <button type="button" id="refresh" class="r-btn">Refresh</button>
       </div>
@@ -21,9 +21,9 @@
     </div>
 
     <!-- Form -->
-    <div id="form-sec" class="form-sec">
+    <div id="form-sec" class="form-sec d-flex">
       <h3 class="add-score">Add your score</h3>
-      <form id="form" class="form">
+      <form id="form" class="form d-flex">
         <input name="name" type="text" id="name" class="name" placeholder="Name" required>
         <input type="text" id="score" class="score" placeholder="Score" required>
         <button type="submit" id="submit" class="submit">Submit</button>
