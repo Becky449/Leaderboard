@@ -13,10 +13,6 @@ In this project we will be using webpack to add name and scores to a leaderboard
 - CSS
 - JavaScript
 
-## Live Demo (if available)
-
-[Live Demo Link](https://livedemo.com)
-
 
 ## Getting Started
 
@@ -34,15 +30,15 @@ Have text editor installed. (Preferably VSCode)
 Have CSS,HTML & JS Linters installed and configured. For further information, visit this link to get better understanding on each linters used on this project.
 
 ### Install
+npm install
 
 ### Usage
 
 ### Run tests
+npm start 
 
 ### Deployment
-- Create a new task
-- Delete task
--  Add a new task
+npm run start
 
 
 ## Authors
@@ -65,7 +61,7 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Thanks for Microverse 
-- Thanks for me
+- Hat tip to all whose code was used.
 
 ## 📝 License
 
